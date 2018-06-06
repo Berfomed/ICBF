@@ -1,0 +1,86 @@
+﻿<?xml version="1.0" encoding="utf-8"?><Database Name="FinalICBF" Class="ORMicbfDataDataContext" xmlns="http://schemas.microsoft.com/linqtosql/dbml/2007">
+  <Connection Mode="AppSettings" ConnectionString="Data Source=DESKTOP-H1T053M\SQLEXPRESS;Initial Catalog=FinalICBF;Integrated Security=True" SettingsObjectName="Datos.Properties.Settings" SettingsPropertyName="FinalICBFConnectionString1" Provider="System.Data.SqlClient" />
+  <Table Name="dbo.Persona" Member="Persona">
+    <Type Name="Persona">
+      <Column Name="Cedula" Type="System.Int64" DbType="BigInt NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
+      <Column Name="Nombres" Type="System.String" DbType="VarChar(45) NOT NULL" CanBeNull="false" />
+      <Column Name="FechaNacimiento" Type="System.DateTime" DbType="Date NOT NULL" CanBeNull="false" />
+      <Column Name="Telefono" Type="System.String" DbType="VarChar(15) NOT NULL" CanBeNull="false" />
+      <Column Name="Celular" Type="System.String" DbType="VarChar(10) NOT NULL" CanBeNull="false" />
+      <Column Name="Direccion" Type="System.String" DbType="VarChar(50) NOT NULL" CanBeNull="false" />
+      <Column Name="Correo" Type="System.String" DbType="VarChar(50) NOT NULL" CanBeNull="false" />
+      <Column Name="Clave" Type="System.String" DbType="VarChar(10) NOT NULL" CanBeNull="false" />
+      <Column Name="idRol" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Association Name="Persona_Registro_Jardin" Member="Registro_Jardin" ThisKey="Cedula" OtherKey="IdMadreComunitaria" Type="Registro_Jardin" />
+      <Association Name="Persona_RegistroNinios" Member="RegistroNinios" ThisKey="Cedula" OtherKey="DocAcudiente" Type="RegistroNinios" />
+      <Association Name="Rol_Persona" Member="Rol" ThisKey="idRol" OtherKey="idRol" Type="Rol" IsForeignKey="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.Registro_Asistencia" Member="Registro_Asistencia">
+    <Type Name="Registro_Asistencia">
+      <Column Name="idRegistro" Type="System.Int64" DbType="BigInt NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="IdNinio" Type="System.Int64" DbType="BigInt NOT NULL" CanBeNull="false" />
+      <Column Name="fecha" Type="System.DateTime" DbType="DateTime NOT NULL" CanBeNull="false" />
+      <Column Name="DesEstadoNinio" Type="System.String" DbType="Text" CanBeNull="true" UpdateCheck="Never" />
+      <Association Name="RegistroNinios_Registro_Asistencia" Member="RegistroNinios" ThisKey="IdNinio" OtherKey="RegistroNIUP" Type="RegistroNinios" IsForeignKey="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.Registro_Avance_Academico" Member="Registro_Avance_Academico">
+    <Type Name="Registro_Avance_Academico">
+      <Column Name="CodRegistro" Type="System.Int64" DbType="BigInt NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="idNinio" Type="System.Int64" DbType="BigInt NOT NULL" CanBeNull="false" />
+      <Column Name="AnioEscolar" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="Nivel" Type="System.String" DbType="VarChar(50) NOT NULL" CanBeNull="false" />
+      <Column Name="Notas" Type="System.String" DbType="VarChar(20) NOT NULL" CanBeNull="false" />
+      <Column Name="Descripcion" Type="System.String" DbType="Text NOT NULL" CanBeNull="false" UpdateCheck="Never" />
+      <Column Name="FechaEntregaNota" Type="System.DateTime" DbType="DateTime NOT NULL" CanBeNull="false" />
+      <Association Name="RegistroNinios_Registro_Avance_Academico" Member="RegistroNinios" ThisKey="idNinio" OtherKey="RegistroNIUP" Type="RegistroNinios" IsForeignKey="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.Registro_Jardin" Member="Registro_Jardin">
+    <Type Name="Registro_Jardin">
+      <Column Name="IdJardin" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="NombreJardin" Type="System.String" DbType="VarChar(50) NOT NULL" CanBeNull="false" />
+      <Column Name="DireccionJardin" Type="System.String" DbType="VarChar(50) NOT NULL" CanBeNull="false" />
+      <Column Name="EstadoJardin" Type="System.String" DbType="VarChar(30) NOT NULL" CanBeNull="false" />
+      <Column Name="IdMadreComunitaria" Type="System.Int64" DbType="BigInt NOT NULL" CanBeNull="false" />
+      <Association Name="Registro_Jardin_RegistroNinios" Member="RegistroNinios" ThisKey="IdJardin" OtherKey="IdJardin" Type="RegistroNinios" />
+      <Association Name="Persona_Registro_Jardin" Member="Persona" ThisKey="IdMadreComunitaria" OtherKey="Cedula" Type="Persona" IsForeignKey="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.RegistroNinios" Member="RegistroNinios">
+    <Type Name="RegistroNinios">
+      <Column Name="RegistroNIUP" Type="System.Int64" DbType="BigInt NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
+      <Column Name="Nombre" Type="System.String" DbType="VarChar(50) NOT NULL" CanBeNull="false" />
+      <Column Name="FechaNac" Type="System.DateTime" DbType="DateTime NOT NULL" CanBeNull="false" />
+      <Column Name="TipoSangre" Type="System.String" DbType="VarChar(10) NOT NULL" CanBeNull="false" />
+      <Column Name="CiudadNacimiento" Type="System.String" DbType="VarChar(50) NOT NULL" CanBeNull="false" />
+      <Column Name="DocAcudiente" Type="System.Int64" DbType="BigInt NOT NULL" CanBeNull="false" />
+      <Column Name="Telefono" Type="System.String" DbType="VarChar(20) NOT NULL" CanBeNull="false" />
+      <Column Name="Direccion" Type="System.String" DbType="VarChar(50) NOT NULL" CanBeNull="false" />
+      <Column Name="EPS" Type="System.String" DbType="VarChar(50) NOT NULL" CanBeNull="false" />
+      <Column Name="IdJardin" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Association Name="RegistroNinios_Registro_Asistencia" Member="Registro_Asistencia" ThisKey="RegistroNIUP" OtherKey="IdNinio" Type="Registro_Asistencia" />
+      <Association Name="RegistroNinios_Registro_Avance_Academico" Member="Registro_Avance_Academico" ThisKey="RegistroNIUP" OtherKey="idNinio" Type="Registro_Avance_Academico" />
+      <Association Name="Persona_RegistroNinios" Member="Persona" ThisKey="DocAcudiente" OtherKey="Cedula" Type="Persona" IsForeignKey="true" />
+      <Association Name="Registro_Jardin_RegistroNinios" Member="Registro_Jardin" ThisKey="IdJardin" OtherKey="IdJardin" Type="Registro_Jardin" IsForeignKey="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.Rol" Member="Rol">
+    <Type Name="Rol">
+      <Column Name="idRol" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="nombreRol" Type="System.String" DbType="VarChar(50)" CanBeNull="true" />
+      <Column Name="descripcion" Type="System.String" DbType="Text" CanBeNull="true" UpdateCheck="Never" />
+      <Association Name="Rol_Persona" Member="Persona" ThisKey="idRol" OtherKey="idRol" Type="Persona" />
+    </Type>
+  </Table>
+  <Function Name="dbo.SP_LOGIN" Method="SP_LOGIN">
+    <Parameter Name="Correo" Parameter="correo" Type="System.String" DbType="VarChar(50)" />
+    <Parameter Name="Clave" Parameter="clave" Type="System.String" DbType="VarChar(10)" />
+    <ElementType Name="SP_LOGINResult">
+      <Column Name="Nombres" Type="System.String" DbType="VarChar(45) NOT NULL" CanBeNull="false" />
+      <Column Name="idRol" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="Correo" Type="System.String" DbType="VarChar(50) NOT NULL" CanBeNull="false" />
+    </ElementType>
+  </Function>
+</Database>

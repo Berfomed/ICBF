@@ -1,0 +1,20 @@
+C:\Users\JAVIER VARON\source\repos\Icbf\Modelo\bin\Debug\Modelo.dll
+C:\Users\JAVIER VARON\source\repos\Icbf\Modelo\bin\Debug\Modelo.pdb
+C:\Users\JAVIER VARON\source\repos\Icbf\Modelo\bin\Debug\Datos.dll
+C:\Users\JAVIER VARON\source\repos\Icbf\Modelo\bin\Debug\Datos.pdb
+C:\Users\JAVIER VARON\source\repos\Icbf\Modelo\bin\Debug\Datos.dll.config
+C:\Users\JAVIER VARON\source\repos\Icbf\Modelo\obj\Debug\Modelo.csprojResolveAssemblyReference.cache
+C:\Users\JAVIER VARON\source\repos\Icbf\Modelo\obj\Debug\Modelo.csproj.CoreCompileInputs.cache
+C:\Users\JAVIER VARON\source\repos\Icbf\Modelo\obj\Debug\Modelo.csproj.CopyComplete
+C:\Users\JAVIER VARON\source\repos\Icbf\Modelo\obj\Debug\Modelo.dll
+C:\Users\JAVIER VARON\source\repos\Icbf\Modelo\obj\Debug\Modelo.pdb
+C:\Users\Jorge Amado Perdomo\Desktop\ICBF\Icbf\Modelo\bin\Debug\Modelo.dll
+C:\Users\Jorge Amado Perdomo\Desktop\ICBF\Icbf\Modelo\bin\Debug\Modelo.pdb
+C:\Users\Jorge Amado Perdomo\Desktop\ICBF\Icbf\Modelo\bin\Debug\Datos.dll
+C:\Users\Jorge Amado Perdomo\Desktop\ICBF\Icbf\Modelo\bin\Debug\Datos.pdb
+C:\Users\Jorge Amado Perdomo\Desktop\ICBF\Icbf\Modelo\bin\Debug\Datos.dll.config
+C:\Users\Jorge Amado Perdomo\Desktop\ICBF\Icbf\Modelo\obj\Debug\Modelo.csprojResolveAssemblyReference.cache
+C:\Users\Jorge Amado Perdomo\Desktop\ICBF\Icbf\Modelo\obj\Debug\Modelo.csproj.CoreCompileInputs.cache
+C:\Users\Jorge Amado Perdomo\Desktop\ICBF\Icbf\Modelo\obj\Debug\Modelo.csproj.CopyComplete
+C:\Users\Jorge Amado Perdomo\Desktop\ICBF\Icbf\Modelo\obj\Debug\Modelo.dll
+C:\Users\Jorge Amado Perdomo\Desktop\ICBF\Icbf\Modelo\obj\Debug\Modelo.pdb

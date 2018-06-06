@@ -1,0 +1,7 @@
+C:\Users\JAVIER VARON\source\repos\Icbf\Datos\bin\Debug\Datos.dll.config
+C:\Users\JAVIER VARON\source\repos\Icbf\Datos\bin\Debug\Datos.dll
+C:\Users\JAVIER VARON\source\repos\Icbf\Datos\bin\Debug\Datos.pdb
+C:\Users\JAVIER VARON\source\repos\Icbf\Datos\obj\Debug\Datos.csprojResolveAssemblyReference.cache
+C:\Users\JAVIER VARON\source\repos\Icbf\Datos\obj\Debug\Datos.csproj.CoreCompileInputs.cache
+C:\Users\JAVIER VARON\source\repos\Icbf\Datos\obj\Debug\Datos.dll
+C:\Users\JAVIER VARON\source\repos\Icbf\Datos\obj\Debug\Datos.pdb
