@@ -1,5 +1,5 @@
-create database FinalICBF
-use FinalICBF
+create database Icbf
+use Icbf
 
 create table Rol(
 	idRol		int not null primary key identity(1,1),
@@ -26,7 +26,7 @@ create table Persona(
 	Clave		varchar(10) not null,
     idRol		int not null
 );
-alter table Persona add foreign key (idRol) references Rol(idRol)
+alter table Persona add foreign key (idRol) references Rol(idRol) on delete cascade
 insert into Persona 
 values(1015, 'Blanca Castro', '12/12/1995', '1234567', '300300000', 'Cra 20 10-50', 'baro@gmail.com', '123',1)
 insert into Persona 
@@ -49,7 +49,7 @@ IdMadreComunitaria	bigint not null,
 )
 ---------Se crea la llave foranea del IdMadreComunitaria en la tabla registro jardin, para vincularlo a una madre
 ---------Relacion uno a muchos, un jardin, varias madres comunitarias
-alter table Registro_Jardin add foreign key (IdMadreComunitaria) references Persona(Cedula)
+alter table Registro_Jardin add foreign key (IdMadreComunitaria) references Persona(Cedula) on delete cascade
 insert into Registro_Jardin 
 values ('Rayito de amor', 'Cra 100 10-15', 'Aprobado', 1013);
 insert into Registro_Jardin 
@@ -71,17 +71,17 @@ EPS					varchar (50) not null,
 IdJardin			int,
 ) 
 --- Creo la relacion uno a muchos de las tablas jardin y niños
-alter table RegistroNinios add foreign key (IdJardin) references Registro_Jardin (IdJardin)
-alter table RegistroNinios add foreign key (DocAcudiente) references  Persona (Cedula)
+alter table RegistroNinios add foreign key (IdJardin) references Registro_Jardin (IdJardin) on delete cascade
+alter table RegistroNinios add foreign key (DocAcudiente) references  Persona (Cedula) on delete cascade
 
 insert into RegistroNinios 
 values (100, 'Juan Castro', '12-12-2012', 'O+', 'Bogotá', 1012, '1234577', 'Cra 68  50-10', 'Compensar', 2)
 insert into RegistroNinios 
-values (101, 'Vanesa Castro', '12-12-2015', 'O+', 'Bogotá', 1020, '1234467', 'Cra 68  15-10', 'Cafam', 3)
+values (101, 'Vanesa Castro', '12-12-2015', 'O+', 'Bogotá', 1020, '1234467', 'Cra 68  15-10', 'Cafam', 1)
 insert into RegistroNinios 
-values (102, 'Carlos Perez', '12-12-2016', 'O+', 'Bogotá', 1012, '1234577', 'Cra 68  50-10', 'Compensar', 3)
+values (102, 'Carlos Perez', '12-12-2016', 'O+', 'Bogotá', 1012, '1234577', 'Cra 68  50-10', 'Compensar', 2)
 insert into RegistroNinios 
-values (103, 'Vanesa Pineda', '12-12-2015', 'O+', 'Bogotá', 1020, '1234467', 'Cra 68  15-10', 'Cafam', 3)
+values (103, 'Vanesa Pineda', '12-12-2015', 'O+', 'Bogotá', 1020, '1234467', 'Cra 68  15-10', 'Cafam', 1)
 
 select * from RegistroNinios;
 
@@ -94,7 +94,7 @@ IdNinio			bigint not null,
 fecha			datetime not null,
 DesEstadoNinio	text
 )
-alter table Registro_Asistencia add foreign key (IdNinio) references RegistroNinios (RegistroNIUP)
+alter table Registro_Asistencia add foreign key (IdNinio) references RegistroNinios (RegistroNIUP) on delete cascade
 
 insert into Registro_Asistencia 
 values (100, '10/05/2018', 'En buenas condiciones de salud');
@@ -118,7 +118,7 @@ Descripcion			text not null,
 FechaEntregaNota	datetime not null
 )
 
-alter table Registro_Avance_Academico add foreign key (idNinio) references RegistroNinios (RegistroNIUP) 
+alter table Registro_Avance_Academico add foreign key (idNinio) references RegistroNinios (RegistroNIUP) on delete cascade
 
 insert into Registro_Avance_Academico
 values (100, 2017, 'Parvulos', '10, 8, 9', 'Muy activo en todas las actividades', '12-05-2017');
@@ -130,22 +130,6 @@ insert into Registro_Avance_Academico
 values (103, 2017, 'Parvulos', '10, 8, 9', 'Muy activo en todas las actividades', '12-05-2017');
 
 SELECT * FROM Registro_Avance_Academico go
-
---create table RegistroAcudientes(
---Nombre				varchar(50) not null,
---Cedula				bigint Primary key not null,
---Telefono			varchar(20) not null,
---Celular				varchar(20) not null,
---Direccion			varchar(50) not null,
---CorreoE				varchar(20) not null)
-
-
---create table Registro_MadreComunitaria(
---NombreM			varchar(50) not null,
---CedulaM			bigint primary key not null,
---TelefonoM		varchar(50) not null,
---DireccionM		varchar(50) not null,
---FechaNacimiento	datetime not null)--
 
 --PROCEDIMIENTO ALMACENADO PARA VALIDAR USUARIO Y CLAVE--
 

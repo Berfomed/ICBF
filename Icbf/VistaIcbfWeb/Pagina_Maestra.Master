@@ -1,0 +1,24 @@
+﻿<%@ Master Language="C#" AutoEventWireup="true" CodeBehind="Pagina_Maestra.master.cs" Inherits="VistaIcbfWeb.Pagina_Maestra" %>
+
+<!DOCTYPE html>
+
+<html>
+<head runat="server">
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+    <title></title>
+    <asp:ContentPlaceHolder ID="head" runat="server"><%--esto lo usamos para crear los template del head--%>
+            <%--esta es una prueba de encabezado--%>
+    </asp:ContentPlaceHolder>
+</head>
+<body>
+    <form id="form1" runat="server">
+        <div>
+            <asp:ContentPlaceHolder ID="Contenido" runat="server"> <%--esto lo usamos para crear los template del body--%>
+           
+                
+            
+            </asp:ContentPlaceHolder>
+        </div>
+    </form>
+</body>
+</html>

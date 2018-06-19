@@ -9,6 +9,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Modelo", "Modelo\Modelo.csp
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Datos", "Datos\Datos.csproj", "{91AA4276-9A20-4924-98AB-114D9C4154CF}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "VistaIcbfWeb", "VistaIcbfWeb\VistaIcbfWeb.csproj", "{7953A733-9BC7-484F-B77B-04BB28807DC2}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -27,6 +29,10 @@ Global
 		{91AA4276-9A20-4924-98AB-114D9C4154CF}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{91AA4276-9A20-4924-98AB-114D9C4154CF}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{91AA4276-9A20-4924-98AB-114D9C4154CF}.Release|Any CPU.Build.0 = Release|Any CPU
+		{7953A733-9BC7-484F-B77B-04BB28807DC2}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{7953A733-9BC7-484F-B77B-04BB28807DC2}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{7953A733-9BC7-484F-B77B-04BB28807DC2}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{7953A733-9BC7-484F-B77B-04BB28807DC2}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

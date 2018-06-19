@@ -134,6 +134,13 @@ namespace Datos
 			IExecuteResult result = this.ExecuteMethodCall(this, ((MethodInfo)(MethodInfo.GetCurrentMethod())), correo, clave);
 			return ((ISingleResult<SP_LOGINResult>)(result.ReturnValue));
 		}
+		
+		[global::System.Data.Linq.Mapping.FunctionAttribute(Name="dbo.SP_LOGIN_WEB")]
+		public ISingleResult<SP_LOGIN_WEBResult> SP_LOGIN_WEB([global::System.Data.Linq.Mapping.ParameterAttribute(Name="Correo", DbType="VarChar(50)")] string correo, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="Clave", DbType="VarChar(10)")] string clave)
+		{
+			IExecuteResult result = this.ExecuteMethodCall(this, ((MethodInfo)(MethodInfo.GetCurrentMethod())), correo, clave);
+			return ((ISingleResult<SP_LOGIN_WEBResult>)(result.ReturnValue));
+		}
 	}
 	
 	[global::System.Data.Linq.Mapping.TableAttribute(Name="dbo.Persona")]
@@ -1747,6 +1754,176 @@ namespace Datos
 				if ((this._Correo != value))
 				{
 					this._Correo = value;
+				}
+			}
+		}
+	}
+	
+	public partial class SP_LOGIN_WEBResult
+	{
+		
+		private long _Cedula;
+		
+		private string _Nombres;
+		
+		private System.DateTime _FechaNacimiento;
+		
+		private string _Telefono;
+		
+		private string _Celular;
+		
+		private string _Direccion;
+		
+		private string _Correo;
+		
+		private string _Clave;
+		
+		private int _idRol;
+		
+		public SP_LOGIN_WEBResult()
+		{
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Cedula", DbType="BigInt NOT NULL")]
+		public long Cedula
+		{
+			get
+			{
+				return this._Cedula;
+			}
+			set
+			{
+				if ((this._Cedula != value))
+				{
+					this._Cedula = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Nombres", DbType="VarChar(45) NOT NULL", CanBeNull=false)]
+		public string Nombres
+		{
+			get
+			{
+				return this._Nombres;
+			}
+			set
+			{
+				if ((this._Nombres != value))
+				{
+					this._Nombres = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_FechaNacimiento", DbType="Date NOT NULL")]
+		public System.DateTime FechaNacimiento
+		{
+			get
+			{
+				return this._FechaNacimiento;
+			}
+			set
+			{
+				if ((this._FechaNacimiento != value))
+				{
+					this._FechaNacimiento = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Telefono", DbType="VarChar(15) NOT NULL", CanBeNull=false)]
+		public string Telefono
+		{
+			get
+			{
+				return this._Telefono;
+			}
+			set
+			{
+				if ((this._Telefono != value))
+				{
+					this._Telefono = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Celular", DbType="VarChar(10) NOT NULL", CanBeNull=false)]
+		public string Celular
+		{
+			get
+			{
+				return this._Celular;
+			}
+			set
+			{
+				if ((this._Celular != value))
+				{
+					this._Celular = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Direccion", DbType="VarChar(50) NOT NULL", CanBeNull=false)]
+		public string Direccion
+		{
+			get
+			{
+				return this._Direccion;
+			}
+			set
+			{
+				if ((this._Direccion != value))
+				{
+					this._Direccion = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Correo", DbType="VarChar(50) NOT NULL", CanBeNull=false)]
+		public string Correo
+		{
+			get
+			{
+				return this._Correo;
+			}
+			set
+			{
+				if ((this._Correo != value))
+				{
+					this._Correo = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Clave", DbType="VarChar(10) NOT NULL", CanBeNull=false)]
+		public string Clave
+		{
+			get
+			{
+				return this._Clave;
+			}
+			set
+			{
+				if ((this._Clave != value))
+				{
+					this._Clave = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_idRol", DbType="Int NOT NULL")]
+		public int idRol
+		{
+			get
+			{
+				return this._idRol;
+			}
+			set
+			{
+				if ((this._idRol != value))
+				{
+					this._idRol = value;
 				}
 			}
 		}

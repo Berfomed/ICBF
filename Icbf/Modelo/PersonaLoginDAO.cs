@@ -11,6 +11,8 @@ namespace Modelo
     //SE DEJAN PÚBLICAS LAS CLASES PARA PODER ACCEDERLAS DESDE OTRO LADO
     public class PersonaLoginDAO
     {
+ 
+
         public bool iniciarSesion(string correo, string clave)
         {
             // Instanciar DataContext aparece ya que es un contexto de datos.
@@ -32,6 +34,36 @@ namespace Modelo
             else
             {
                 return false;
+            }
+        }
+
+        public Persona iniciarSesionweb(string correo, string clave)
+        {
+            // Instanciar DataContext aparece ya que es un contexto de datos.
+            ORMicbfDataDataContext bdcx = new ORMicbfDataDataContext();
+            //Ejecutar la función y esa retornaría un resultado o nada
+            //Crear consulta--que llama el procedimiento
+            Persona obpersona = new Persona();
+            var consulta = (from alias in bdcx.SP_LOGIN_WEB(correo, clave)
+                            select alias).FirstOrDefault();
+            if (consulta != null)
+            {
+                obpersona.Cedula = consulta.Cedula;
+                obpersona.Nombres = consulta.Nombres;
+                obpersona.FechaNacimiento = consulta.FechaNacimiento;
+                obpersona.Telefono = consulta.Telefono;
+                obpersona.Celular = consulta.Celular;
+                obpersona.Direccion = consulta.Direccion;
+                obpersona.Correo = consulta.Correo;
+                obpersona.Clave = consulta.Clave;
+                obpersona.idRol = consulta.idRol;               
+            }
+            ////Validar si la consulta trajo algo o nada  
+                       
+              return obpersona;  
+            
+            {
+
             }
         }
     }

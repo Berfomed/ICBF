@@ -83,4 +83,19 @@
       <Column Name="Correo" Type="System.String" DbType="VarChar(50) NOT NULL" CanBeNull="false" />
     </ElementType>
   </Function>
+  <Function Name="dbo.SP_LOGIN_WEB" Method="SP_LOGIN_WEB">
+    <Parameter Name="Correo" Parameter="correo" Type="System.String" DbType="VarChar(50)" />
+    <Parameter Name="Clave" Parameter="clave" Type="System.String" DbType="VarChar(10)" />
+    <ElementType Name="SP_LOGIN_WEBResult">
+      <Column Name="Cedula" Type="System.Int64" DbType="BigInt NOT NULL" CanBeNull="false" />
+      <Column Name="Nombres" Type="System.String" DbType="VarChar(45) NOT NULL" CanBeNull="false" />
+      <Column Name="FechaNacimiento" Type="System.DateTime" DbType="Date NOT NULL" CanBeNull="false" />
+      <Column Name="Telefono" Type="System.String" DbType="VarChar(15) NOT NULL" CanBeNull="false" />
+      <Column Name="Celular" Type="System.String" DbType="VarChar(10) NOT NULL" CanBeNull="false" />
+      <Column Name="Direccion" Type="System.String" DbType="VarChar(50) NOT NULL" CanBeNull="false" />
+      <Column Name="Correo" Type="System.String" DbType="VarChar(50) NOT NULL" CanBeNull="false" />
+      <Column Name="Clave" Type="System.String" DbType="VarChar(10) NOT NULL" CanBeNull="false" />
+      <Column Name="idRol" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+    </ElementType>
+  </Function>
 </Database>

@@ -92,15 +92,15 @@ namespace Modelo
                            join b in bd.Rol on a.idRol equals b.idRol
                            select new
                            {
-                              a.Cedula,
-                               a.Nombres,
-                               a.FechaNacimiento,
-                               a.Telefono,
-                               a.Celular,
-                               a.Direccion,
-                               a.Correo,
-                               a.Clave,
-                               a.idRol,
+                                  a.Cedula,
+                                   a.Nombres,
+                                   a.FechaNacimiento,
+                                   a.Telefono,
+                                   a.Celular,
+                                   a.Direccion,
+                                   a.Correo,
+                                   a.Clave,
+                                   a.idRol,
                            };
             //por si hay campos repetidos
 
@@ -154,6 +154,12 @@ namespace Modelo
                            };
             return consulta.ToString();
 
+        }
+        public object selectPersona(int id)
+        {
+            ORMicbfDataDataContext FinalICBF = new ORMicbfDataDataContext();
+            var cons = (from per in FinalICBF.Persona where per.Cedula == id select per).FirstOrDefault();
+            return cons;
         }
 
         

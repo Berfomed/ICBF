@@ -2,7 +2,7 @@
 <ordesignerObjectsDiagram dslVersion="1.0.0.0" absoluteBounds="0, 0, 14, 8.5" name="ORMicbfData">
   <DataContextMoniker Name="/ORMicbfDataDataContext" />
   <nestedChildShapes>
-    <classShape Id="f23613fa-8de4-4709-809f-7dfad64be95b" absoluteBounds="3.5, 2, 2, 2.5401025390625005">
+    <classShape Id="f23613fa-8de4-4709-809f-7dfad64be95b" absoluteBounds="3.5, 2, 2, 2.5401025390624996">
       <DataClassMoniker Name="/ORMicbfDataDataContext/Persona" />
       <nestedChildShapes>
         <elementListCompartment Id="40dd618c-9541-464d-b3b6-49e048b0a715" absoluteBounds="3.515, 2.46, 1.9700000000000002, 1.9801025390625" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
@@ -45,14 +45,14 @@
         <classShapeMoniker Id="e3109116-25e0-4f49-9805-f2c4bc8905fe" />
       </nodes>
     </associationConnector>
-    <associationConnector edgePoints="[(11 : 2.22679768880208); (11.75 : 2.22679768880208)]" fixedFrom="Algorithm" fixedTo="Algorithm">
+    <associationConnector edgePoints="[(11 : 2.22679768880208); (11.75 : 2.22679768880208)]" fixedFrom="NotFixed" fixedTo="NotFixed">
       <AssociationMoniker Name="/ORMicbfDataDataContext/RegistroNinios/RegistroNinios_Registro_Asistencia" />
       <nodes>
         <classShapeMoniker Id="eccbd8d1-df77-401f-8715-2e08cfd1d9ef" />
         <classShapeMoniker Id="9c343462-a16f-4950-91f4-15e2cd57a68a" />
       </nodes>
     </associationConnector>
-    <associationConnector edgePoints="[(11 : 3.99120198567708); (11.75 : 3.99120198567708)]" fixedFrom="Algorithm" fixedTo="Algorithm">
+    <associationConnector edgePoints="[(11 : 3.99120198567708); (11.75 : 3.99120198567708)]" fixedFrom="NotFixed" fixedTo="NotFixed">
       <AssociationMoniker Name="/ORMicbfDataDataContext/RegistroNinios/RegistroNinios_Registro_Avance_Academico" />
       <nodes>
         <classShapeMoniker Id="eccbd8d1-df77-401f-8715-2e08cfd1d9ef" />
@@ -66,7 +66,7 @@
         <classShapeMoniker Id="eccbd8d1-df77-401f-8715-2e08cfd1d9ef" />
       </nodes>
     </associationConnector>
-    <associationConnector edgePoints="[(8.25 : 3.26044840494792); (9 : 3.26044840494792)]" fixedFrom="Algorithm" fixedTo="Algorithm">
+    <associationConnector edgePoints="[(8.25 : 3.26044840494792); (9 : 3.26044840494792)]" fixedFrom="NotFixed" fixedTo="NotFixed">
       <AssociationMoniker Name="/ORMicbfDataDataContext/Registro_Jardin/Registro_Jardin_RegistroNinios" />
       <nodes>
         <classShapeMoniker Id="e3109116-25e0-4f49-9805-f2c4bc8905fe" />
