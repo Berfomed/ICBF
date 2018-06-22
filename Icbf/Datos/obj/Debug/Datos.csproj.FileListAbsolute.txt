@@ -8,7 +8,6 @@ C:\Users\JAVIER VARON\source\repos\Icbf\Datos\obj\Debug\Datos.pdb
 C:\Users\Jorge Amado Perdomo\Desktop\ICBF\Icbf\Datos\bin\Debug\Datos.dll.config
 C:\Users\Jorge Amado Perdomo\Desktop\ICBF\Icbf\Datos\bin\Debug\Datos.dll
 C:\Users\Jorge Amado Perdomo\Desktop\ICBF\Icbf\Datos\bin\Debug\Datos.pdb
-C:\Users\Jorge Amado Perdomo\Desktop\ICBF\Icbf\Datos\obj\Debug\Datos.csprojResolveAssemblyReference.cache
 C:\Users\Jorge Amado Perdomo\Desktop\ICBF\Icbf\Datos\obj\Debug\Datos.csproj.CoreCompileInputs.cache
 C:\Users\Jorge Amado Perdomo\Desktop\ICBF\Icbf\Datos\obj\Debug\Datos.dll
 C:\Users\Jorge Amado Perdomo\Desktop\ICBF\Icbf\Datos\obj\Debug\Datos.pdb

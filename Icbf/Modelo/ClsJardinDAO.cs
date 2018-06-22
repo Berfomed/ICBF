@@ -13,28 +13,39 @@ namespace Modelo
     {
         public void registrarJardin(string _nombreJardin, string _direccion, string _estado, int _madreComunitaria)
         {
-
-            //crear la instancia del ORM
-            ORMicbfDataDataContext bd = new ORMicbfDataDataContext();
-            //ASIGNAR LOS VALORES A UN OBJETO DE CLASE PERSONA
-            Registro_Jardin objJardin = new Registro_Jardin();
-            //nombre del objeto y el atributo
-            try
+            ORMicbfDataDataContext dbicbf = new ORMicbfDataDataContext();
+            var consulta = (from a in dbicbf.Registro_Jardin
+                            where a.IdMadreComunitaria.Equals(_madreComunitaria) && a.NombreJardin.Equals(_nombreJardin)
+                            select a).First();
+            if (consulta == null)
             {
-                objJardin.NombreJardin = _nombreJardin;
-                objJardin.DireccionJardin = _direccion;
-                objJardin.EstadoJardin = _estado;
-                objJardin.IdMadreComunitaria = _madreComunitaria;
-                //LA INSTANCIA QUE SE LE DA AL ORM+TABLA A INSERTAR REGISTROS.METODO INSERT
-                bd.Registro_Jardin.InsertOnSubmit(objJardin);
-                //ejecutar cambios para que registre en la bd
-                bd.SubmitChanges();
-                MessageBox.Show("Se registró correctamente");
+                //crear la instancia del ORM
+                ORMicbfDataDataContext bd = new ORMicbfDataDataContext();
+                //ASIGNAR LOS VALORES A UN OBJETO DE CLASE PERSONA
+                Registro_Jardin objJardin = new Registro_Jardin();
+                //nombre del objeto y el atributo
+                try
+                {
+                    objJardin.NombreJardin = _nombreJardin;
+                    objJardin.DireccionJardin = _direccion;
+                    objJardin.EstadoJardin = _estado;
+                    objJardin.IdMadreComunitaria = _madreComunitaria;
+                    //LA INSTANCIA QUE SE LE DA AL ORM+TABLA A INSERTAR REGISTROS.METODO INSERT
+                    bd.Registro_Jardin.InsertOnSubmit(objJardin);
+                    //ejecutar cambios para que registre en la bd
+                    bd.SubmitChanges();
+                    MessageBox.Show("Se registró correctamente");
+                }
+                catch (Exception ex)
+                {
+                    MessageBox.Show("Error:" + ex.Message);
+                }
             }
-            catch (Exception ex)
+            else
             {
-                MessageBox.Show("Error:" + ex.Message);
+                MessageBox.Show("Esta Madre Comunitaria ya se encuentra asignada a un Jardin, o el Jardin ya se encuentra regisrado");
             }
+           
 
 
 

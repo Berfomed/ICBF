@@ -27,10 +27,24 @@ namespace VistaIcbfWeb
                 Session["Cedula"] = objpersona.Cedula;
                 Session["Nombres"] = objpersona.Nombres;
                 Session["Rol"] = objpersona.Rol;
-                Response.Redirect("Persona.aspx");
-                if (objpersona.Rol.Equals(1))
+                //Response.Redirect("Persona.aspx");
+                if (objpersona.idRol.Equals(1))
                 {
-                    Response.Redirect("http://www.microsoft.com");
+                    Response.Redirect("~/Administrador/Index.aspx", true);
+                    Response.End();
+                    return;
+                }
+                else if (objpersona.idRol.Equals(2))
+                {
+                    Response.Redirect("~/MadreComunitaria/Index.aspx", true);
+                    Response.End();
+                    return;
+                }
+                else if (objpersona.idRol.Equals(3))
+                {
+                    Response.Redirect("~/Acudiente/Index.aspx", true);
+                    Response.End();
+                    return;
                 }
             }           
             

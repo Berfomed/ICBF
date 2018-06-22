@@ -67,9 +67,12 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="packages.config" />
+    <Content Include="Acudiente\Index.aspx" />
     <Content Include="Administrador\Index.aspx" />
+    <Content Include="Default.aspx" />
     <Content Include="Jardin.aspx" />
-    <Content Include="Niños.aspx" />
+    <Content Include="EditListNiños.aspx" />
+    <Content Include="MadreComunitaria\Index.aspx" />
     <Content Include="Pagina_Maestra.Master" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
@@ -88,12 +91,26 @@
     </Content>
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Acudiente\Index.aspx.cs">
+      <DependentUpon>Index.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Acudiente\Index.aspx.designer.cs">
+      <DependentUpon>Index.aspx</DependentUpon>
+    </Compile>
     <Compile Include="Administrador\Index.aspx.cs">
       <DependentUpon>Index.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
     </Compile>
     <Compile Include="Administrador\Index.aspx.designer.cs">
       <DependentUpon>Index.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Default.aspx.cs">
+      <DependentUpon>Default.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Default.aspx.designer.cs">
+      <DependentUpon>Default.aspx</DependentUpon>
     </Compile>
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
@@ -119,12 +136,19 @@
     <Compile Include="Login.aspx.designer.cs">
       <DependentUpon>Login.aspx</DependentUpon>
     </Compile>
-    <Compile Include="Niños.aspx.cs">
-      <DependentUpon>Niños.aspx</DependentUpon>
+    <Compile Include="EditListNiños.aspx.cs">
+      <DependentUpon>EditListNiños.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
     </Compile>
-    <Compile Include="Niños.aspx.designer.cs">
-      <DependentUpon>Niños.aspx</DependentUpon>
+    <Compile Include="EditListNiños.aspx.designer.cs">
+      <DependentUpon>EditListNiños.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="MadreComunitaria\Index.aspx.cs">
+      <DependentUpon>Index.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="MadreComunitaria\Index.aspx.designer.cs">
+      <DependentUpon>Index.aspx</DependentUpon>
     </Compile>
     <Compile Include="Pagina_Maestra.Master.cs">
       <DependentUpon>Pagina_Maestra.Master</DependentUpon>
@@ -144,7 +168,7 @@
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
-    <Folder Include="MadreComunitaria\" />
+    <Folder Include="Css\" />
     <Folder Include="Models\" />
   </ItemGroup>
   <ItemGroup>

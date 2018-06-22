@@ -1,4 +1,4 @@
-﻿<%@ Page Title="" Language="C#" MasterPageFile="~/Pagina_Maestra.Master" AutoEventWireup="true" CodeBehind="Niños.aspx.cs" Inherits="VistaIcbfWeb.Niños" %>
+﻿<%@ Page Title="" Language="C#" MasterPageFile="~/Pagina_Maestra.Master" AutoEventWireup="true" CodeBehind="EditListNiños.aspx.cs" Inherits="VistaIcbfWeb.Niños" %>
 <asp:Content ID="Content1" ContentPlaceHolderID="head" runat="server">
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="Contenido" runat="server">
@@ -117,10 +117,10 @@
                     <asp:Label ID="Label10" runat="server" Text='<%# Bind("IdJardin") %>'></asp:Label>
                 </ItemTemplate>
             </asp:TemplateField>
-            <asp:CommandField ShowDeleteButton="True" ShowEditButton="True" ShowInsertButton="True" />
+            <asp:CommandField ShowDeleteButton="True" ShowEditButton="True" />
         </Fields>
     </asp:DetailsView>
-    <asp:LinqDataSource ID="LinqDataSource1" runat="server" ContextTypeName="Datos.ORMicbfDataDataContext" EnableDelete="True" EnableInsert="True" EnableUpdate="True" EntityTypeName="" TableName="RegistroNinios">
+    <asp:LinqDataSource ID="LinqDataSource1" runat="server" ContextTypeName="Datos.ORMicbfDataDataContext" EnableDelete="True" EnableUpdate="True" EntityTypeName="" TableName="RegistroNinios">
     </asp:LinqDataSource>
     <p>
     </p>

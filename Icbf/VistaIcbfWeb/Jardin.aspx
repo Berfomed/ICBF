@@ -4,7 +4,7 @@
 <asp:Content ID="Content2" ContentPlaceHolderID="Contenido" runat="server">
 
 
-    <asp:DetailsView ID="DetailsView1" runat="server" AllowPaging="True" AutoGenerateRows="False" DataKeyNames="IdJardin" DataSourceID="LinqDataSource1" Height="50px" Width="125px" CellPadding="4" ForeColor="#333333" GridLines="None">
+    <asp:DetailsView ID="DetailsView1" runat="server" AllowPaging="True" AutoGenerateRows="False" DataKeyNames="IdJardin" DataSourceID="LinqDataSource1" Height="50px" Width="125px" CellPadding="4" ForeColor="#333333" GridLines="None" OnPageIndexChanging="DetailsView1_PageIndexChanging">
         <AlternatingRowStyle BackColor="White" />
         <CommandRowStyle BackColor="#FFFFC0" Font-Bold="True" />
         <FieldHeaderStyle BackColor="#FFFF99" Font-Bold="True" />
@@ -70,7 +70,7 @@
         <PagerStyle BackColor="#FFCC66" ForeColor="#333333" HorizontalAlign="Center" />
         <RowStyle BackColor="#FFFBD6" ForeColor="#333333" />
     </asp:DetailsView>
-    <asp:LinqDataSource ID="LinqDataSource1" runat="server" ContextTypeName="Datos.ORMicbfDataDataContext" EnableDelete="True" EnableInsert="True" EnableUpdate="True" EntityTypeName="" TableName="Registro_Jardin">
+    <asp:LinqDataSource ID="LinqDataSource1" runat="server" ContextTypeName="Datos.ORMicbfDataDataContext" EnableDelete="True" EnableUpdate="True" EntityTypeName="" TableName="Registro_Jardin">
     </asp:LinqDataSource>
     <p>
     </p>

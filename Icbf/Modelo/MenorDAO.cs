@@ -30,6 +30,7 @@ namespace Modelo
                 objninos.IdJardin = _idjardin;
                 FinalICBF.RegistroNinios.InsertOnSubmit(objninos);
                 FinalICBF.SubmitChanges();
+                MessageBox.Show("Registro Exitoso");
             }
             catch (Exception ex)
             {
@@ -123,6 +124,30 @@ namespace Modelo
             FinalICBF.SubmitChanges();
             MessageBox.Show("Se eliminó El registro del nino");
 
+        }
+
+        //Metodo para consultar los jardines
+        public object consultarJardines()
+        {
+            ORMicbfDataDataContext db = new ORMicbfDataDataContext();
+            var consulta = from a in db.Registro_Jardin
+                           select a;
+            return consulta.Distinct();
+        }
+
+
+        //Metodo para Consultar los acudientes, en este caso hacemos referencia al idRol = 3
+        public object consultarPersonas()
+        {
+            ORMicbfDataDataContext db = new ORMicbfDataDataContext();
+            var consulta = from a in db.Persona
+                           where a.idRol.Equals(3)
+                           select new
+                           {
+                               a.Nombres,
+                               a.Cedula,
+                           };
+            return consulta.Distinct();
         }
     }
 }

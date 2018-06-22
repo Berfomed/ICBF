@@ -52,11 +52,11 @@ namespace Modelo
             }
             catch (Exception ex)
             {
-                MessageBox.Show("Error:" +ex.Message);
+                MessageBox.Show("Error:" + ex.Message);
             }
 
 
-            
+
         }
         public void actualizarPersona(int _cedula, string _nombres, DateTime _fechaNacimiento, string _telefono, string _celular, string _direccion, string _correo, string _clave, int _rol)
         {
@@ -66,8 +66,8 @@ namespace Modelo
             //traer el objeto que se quiere modificar, se trae con una consulta para traer una persona que ya exista en la bd
 
             var objPersona = (from a in bd.Persona
-                             where a.Cedula == _cedula
-                             select a).First();
+                              where a.Cedula == _cedula
+                              select a).First();
 
 
             //nombre del objeto y el atributo
@@ -92,15 +92,15 @@ namespace Modelo
                            join b in bd.Rol on a.idRol equals b.idRol
                            select new
                            {
-                                  a.Cedula,
-                                   a.Nombres,
-                                   a.FechaNacimiento,
-                                   a.Telefono,
-                                   a.Celular,
-                                   a.Direccion,
-                                   a.Correo,
-                                   a.Clave,
-                                   a.idRol,
+                               a.Cedula,
+                               a.Nombres,
+                               a.FechaNacimiento,
+                               a.Telefono,
+                               a.Celular,
+                               a.Direccion,
+                               a.Correo,
+                               a.Clave,
+                               a.idRol,
                            };
             //por si hay campos repetidos
 
@@ -135,13 +135,14 @@ namespace Modelo
             var objPersona = (from a in bd.Persona
                               where a.Cedula == _cedula
                               select a).FirstOrDefault();//trae el primer objeto que encuentre y el default muestra null sino trae
-                                //first genera excepcion y default controla dicha excepción
+                                                         //first genera excepcion y default controla dicha excepción
             bd.Persona.DeleteOnSubmit(objPersona);
             bd.SubmitChanges();
             MessageBox.Show("Se eliminó la persona");
 
         }
 
+        //Metodo para cargar informacion en el drop down list del acuadiente en registro niños
         public String seleccionarAcudiente()
         {
             ORMicbfDataDataContext FinalICBF = new ORMicbfDataDataContext();
@@ -150,11 +151,13 @@ namespace Modelo
                            select new
                            {
                                a.Cedula,
-                             
+
                            };
             return consulta.ToString();
 
         }
+
+        //
         public object selectPersona(int id)
         {
             ORMicbfDataDataContext FinalICBF = new ORMicbfDataDataContext();
@@ -162,6 +165,19 @@ namespace Modelo
             return cons;
         }
 
-        
+        //Metodo para cargar informacion en el drop down list de la madre comunitaria en registro de jardines
+        public object seleccionarMadre()
+        {
+            ORMicbfDataDataContext db = new ORMicbfDataDataContext();
+            var consulta = from madre in db.Persona
+                           where madre.idRol.Equals(2)
+                           select new {
+                           madre.Cedula,
+                           madre.Nombres,
+                           };
+            return consulta.Distinct();
+        }
+
+
     }
 }
