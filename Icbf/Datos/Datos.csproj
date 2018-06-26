@@ -42,6 +42,9 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Class1.cs" />
+    <Compile Include="ORMicbfData.cs">
+      <DependentUpon>ORMicbfData.dbml</DependentUpon>
+    </Compile>
     <Compile Include="ORMicbfData.designer.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>

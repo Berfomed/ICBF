@@ -13,6 +13,7 @@ namespace VistaIcbfWeb
     {
         protected void Page_Load(object sender, EventArgs e)
         {
+            lbfecha.Text = DateTime.Now.ToString();
 
         }
 
@@ -48,6 +49,11 @@ namespace VistaIcbfWeb
                 }
             }           
             
+        }
+
+        protected void Login2_Authenticate(object sender, AuthenticateEventArgs e)
+        {
+
         }
     }
 }

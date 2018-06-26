@@ -6,6 +6,7 @@ using System.Threading.Tasks;
 using System.Windows.Forms;
 using Datos;
 
+
 namespace Modelo
 {
     public class ClsAsistenciaDAO
@@ -51,6 +52,34 @@ namespace Modelo
 
         }
 
+        public object ninosEnfermos()
+        {
+            ORMicbfDataDataContext db = new ORMicbfDataDataContext();
+            var consulta = from a in db.Registro_Asistencia
+                           join b in db.RegistroNinios on a.IdNinio equals b.RegistroNIUP
+                           where a.DesEstadoNinio.Equals("Enfermo")
+                           select new
+                           {
+                               IdNinio = b.Nombre,
+                               a.fecha,
+                               a.DesEstadoNinio,
+                           };
+            return consulta.Distinct();                          
+        }
 
+        ORMicbfDataDataContext db = new ORMicbfDataDataContext();
+        public object Inasistencia()
+        {
+
+            //var consulta = "SELECT * FROM Registro_Asistencia WHERE fecha BETWEEN '" +desde+ "' AND '" + hasta + "' ";
+            var consulta = from a in db.Registro_Asistencia
+                           where a.fecha >= DateTime.Now.AddDays(-8) && a.DesEstadoNinio.Equals("No Asistió")
+                           select a;
+            return consulta.Distinct();
+        }
+
+
+       
+        
         }
     }

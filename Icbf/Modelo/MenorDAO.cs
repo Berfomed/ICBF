@@ -149,5 +149,16 @@ namespace Modelo
                            };
             return consulta.Distinct();
         }
+        int resultadoconsulta;
+
+        public int niñosporJardin(int _idJardin)
+        {
+            
+            ORMicbfDataDataContext db = new ORMicbfDataDataContext();
+            var consulta = (from a in db.RegistroNinios
+                            where a.IdJardin.Equals(_idJardin)
+                            select a).Count();
+            return consulta;
+        }
     }
 }

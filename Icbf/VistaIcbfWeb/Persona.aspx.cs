@@ -15,25 +15,31 @@ namespace VistaIcbfWeb
             //valido que la primara vez que carga lapagna, llene el combo list de rol
             if (!IsPostBack)
             {
-                ClsRolDAO objrol = new ClsRolDAO();
-                ddlRol.DataSource = objrol.consultarTodos();
+                ClsRolDAO objRol = new ClsRolDAO();
+
+                ddlRol.DataSource = objRol.consultarTodos();
                 ddlRol.DataTextField = "nombreRol";
                 ddlRol.DataValueField = "idRol";
                 ddlRol.DataBind();
             }
+              
            
         }
 
-        protected void btnCrear_Click(object sender, EventArgs e)
+        
+
+        protected void btnRegistrar_Click(object sender, EventArgs e)
         {
-            ClsPersonaDAO objpersona = new ClsPersonaDAO();
-            objpersona.registrarPersona(Int32.Parse(txtCedula.Text), 
-                                        txtNombre.Text, DateTime.Parse(clFechaNaci.SelectedDate.ToString()), 
-                                        txtTelefono.Text, txtCelular.Text, 
-                                        txtDireccion.Text, txtCorreo.Text, 
-                                        txtClave.Text, int.Parse(ddlRol.SelectedValue.ToString()));
+            ClsPersonaDAO objPersona = new ClsPersonaDAO();
 
-
+            objPersona.registrarPersona(int.Parse(TxtCedula.Text),
+                                        TxtNombres.Text, DateTime.Parse(ClFechaNa.SelectedDate.ToString()),
+                                        TxtTelefono.Text,
+                                        TxtCelular.Text,
+                                        TxtDireccion.Text,
+                                        TxtCorreo.Text,
+                                        "USUARIO" + TxtCedula,
+                                        int.Parse(ddlRol.SelectedValue.ToString()));
         }
     }
 }

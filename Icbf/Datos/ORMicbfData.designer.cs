@@ -33,9 +33,6 @@ namespace Datos
     partial void InsertPersona(Persona instance);
     partial void UpdatePersona(Persona instance);
     partial void DeletePersona(Persona instance);
-    partial void InsertRegistro_Asistencia(Registro_Asistencia instance);
-    partial void UpdateRegistro_Asistencia(Registro_Asistencia instance);
-    partial void DeleteRegistro_Asistencia(Registro_Asistencia instance);
     partial void InsertRegistro_Avance_Academico(Registro_Avance_Academico instance);
     partial void UpdateRegistro_Avance_Academico(Registro_Avance_Academico instance);
     partial void DeleteRegistro_Avance_Academico(Registro_Avance_Academico instance);
@@ -48,6 +45,12 @@ namespace Datos
     partial void InsertRol(Rol instance);
     partial void UpdateRol(Rol instance);
     partial void DeleteRol(Rol instance);
+    partial void InsertAnuncios(Anuncios instance);
+    partial void UpdateAnuncios(Anuncios instance);
+    partial void DeleteAnuncios(Anuncios instance);
+    partial void InsertRegistro_Asistencia(Registro_Asistencia instance);
+    partial void UpdateRegistro_Asistencia(Registro_Asistencia instance);
+    partial void DeleteRegistro_Asistencia(Registro_Asistencia instance);
     #endregion
 		
 		public ORMicbfDataDataContext() : 
@@ -88,14 +91,6 @@ namespace Datos
 			}
 		}
 		
-		public System.Data.Linq.Table<Registro_Asistencia> Registro_Asistencia
-		{
-			get
-			{
-				return this.GetTable<Registro_Asistencia>();
-			}
-		}
-		
 		public System.Data.Linq.Table<Registro_Avance_Academico> Registro_Avance_Academico
 		{
 			get
@@ -125,6 +120,22 @@ namespace Datos
 			get
 			{
 				return this.GetTable<Rol>();
+			}
+		}
+		
+		public System.Data.Linq.Table<Anuncios> Anuncios
+		{
+			get
+			{
+				return this.GetTable<Anuncios>();
+			}
+		}
+		
+		public System.Data.Linq.Table<Registro_Asistencia> Registro_Asistencia
+		{
+			get
+			{
+				return this.GetTable<Registro_Asistencia>();
 			}
 		}
 		
@@ -491,181 +502,6 @@ namespace Datos
 		{
 			this.SendPropertyChanging();
 			entity.Persona = null;
-		}
-	}
-	
-	[global::System.Data.Linq.Mapping.TableAttribute(Name="dbo.Registro_Asistencia")]
-	public partial class Registro_Asistencia : INotifyPropertyChanging, INotifyPropertyChanged
-	{
-		
-		private static PropertyChangingEventArgs emptyChangingEventArgs = new PropertyChangingEventArgs(String.Empty);
-		
-		private long _idRegistro;
-		
-		private long _IdNinio;
-		
-		private System.DateTime _fecha;
-		
-		private string _DesEstadoNinio;
-		
-		private EntityRef<RegistroNinios> _RegistroNinios;
-		
-    #region Definiciones de métodos de extensibilidad
-    partial void OnLoaded();
-    partial void OnValidate(System.Data.Linq.ChangeAction action);
-    partial void OnCreated();
-    partial void OnidRegistroChanging(long value);
-    partial void OnidRegistroChanged();
-    partial void OnIdNinioChanging(long value);
-    partial void OnIdNinioChanged();
-    partial void OnfechaChanging(System.DateTime value);
-    partial void OnfechaChanged();
-    partial void OnDesEstadoNinioChanging(string value);
-    partial void OnDesEstadoNinioChanged();
-    #endregion
-		
-		public Registro_Asistencia()
-		{
-			this._RegistroNinios = default(EntityRef<RegistroNinios>);
-			OnCreated();
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_idRegistro", AutoSync=AutoSync.OnInsert, DbType="BigInt NOT NULL IDENTITY", IsPrimaryKey=true, IsDbGenerated=true)]
-		public long idRegistro
-		{
-			get
-			{
-				return this._idRegistro;
-			}
-			set
-			{
-				if ((this._idRegistro != value))
-				{
-					this.OnidRegistroChanging(value);
-					this.SendPropertyChanging();
-					this._idRegistro = value;
-					this.SendPropertyChanged("idRegistro");
-					this.OnidRegistroChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_IdNinio", DbType="BigInt NOT NULL")]
-		public long IdNinio
-		{
-			get
-			{
-				return this._IdNinio;
-			}
-			set
-			{
-				if ((this._IdNinio != value))
-				{
-					if (this._RegistroNinios.HasLoadedOrAssignedValue)
-					{
-						throw new System.Data.Linq.ForeignKeyReferenceAlreadyHasValueException();
-					}
-					this.OnIdNinioChanging(value);
-					this.SendPropertyChanging();
-					this._IdNinio = value;
-					this.SendPropertyChanged("IdNinio");
-					this.OnIdNinioChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_fecha", DbType="DateTime NOT NULL")]
-		public System.DateTime fecha
-		{
-			get
-			{
-				return this._fecha;
-			}
-			set
-			{
-				if ((this._fecha != value))
-				{
-					this.OnfechaChanging(value);
-					this.SendPropertyChanging();
-					this._fecha = value;
-					this.SendPropertyChanged("fecha");
-					this.OnfechaChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_DesEstadoNinio", DbType="Text", UpdateCheck=UpdateCheck.Never)]
-		public string DesEstadoNinio
-		{
-			get
-			{
-				return this._DesEstadoNinio;
-			}
-			set
-			{
-				if ((this._DesEstadoNinio != value))
-				{
-					this.OnDesEstadoNinioChanging(value);
-					this.SendPropertyChanging();
-					this._DesEstadoNinio = value;
-					this.SendPropertyChanged("DesEstadoNinio");
-					this.OnDesEstadoNinioChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="RegistroNinios_Registro_Asistencia", Storage="_RegistroNinios", ThisKey="IdNinio", OtherKey="RegistroNIUP", IsForeignKey=true)]
-		public RegistroNinios RegistroNinios
-		{
-			get
-			{
-				return this._RegistroNinios.Entity;
-			}
-			set
-			{
-				RegistroNinios previousValue = this._RegistroNinios.Entity;
-				if (((previousValue != value) 
-							|| (this._RegistroNinios.HasLoadedOrAssignedValue == false)))
-				{
-					this.SendPropertyChanging();
-					if ((previousValue != null))
-					{
-						this._RegistroNinios.Entity = null;
-						previousValue.Registro_Asistencia.Remove(this);
-					}
-					this._RegistroNinios.Entity = value;
-					if ((value != null))
-					{
-						value.Registro_Asistencia.Add(this);
-						this._IdNinio = value.RegistroNIUP;
-					}
-					else
-					{
-						this._IdNinio = default(long);
-					}
-					this.SendPropertyChanged("RegistroNinios");
-				}
-			}
-		}
-		
-		public event PropertyChangingEventHandler PropertyChanging;
-		
-		public event PropertyChangedEventHandler PropertyChanged;
-		
-		protected virtual void SendPropertyChanging()
-		{
-			if ((this.PropertyChanging != null))
-			{
-				this.PropertyChanging(this, emptyChangingEventArgs);
-			}
-		}
-		
-		protected virtual void SendPropertyChanged(String propertyName)
-		{
-			if ((this.PropertyChanged != null))
-			{
-				this.PropertyChanged(this, new PropertyChangedEventArgs(propertyName));
-			}
 		}
 	}
 	
@@ -1169,9 +1005,11 @@ namespace Datos
 		
 		private System.Nullable<int> _IdJardin;
 		
+		private EntitySet<Registro_Avance_Academico> _Registro_Avance_Academico;
+		
 		private EntitySet<Registro_Asistencia> _Registro_Asistencia;
 		
-		private EntitySet<Registro_Avance_Academico> _Registro_Avance_Academico;
+		private EntitySet<Registro_Asistencia> _Registro_Asistencia1;
 		
 		private EntityRef<Persona> _Persona;
 		
@@ -1205,8 +1043,9 @@ namespace Datos
 		
 		public RegistroNinios()
 		{
-			this._Registro_Asistencia = new EntitySet<Registro_Asistencia>(new Action<Registro_Asistencia>(this.attach_Registro_Asistencia), new Action<Registro_Asistencia>(this.detach_Registro_Asistencia));
 			this._Registro_Avance_Academico = new EntitySet<Registro_Avance_Academico>(new Action<Registro_Avance_Academico>(this.attach_Registro_Avance_Academico), new Action<Registro_Avance_Academico>(this.detach_Registro_Avance_Academico));
+			this._Registro_Asistencia = new EntitySet<Registro_Asistencia>(new Action<Registro_Asistencia>(this.attach_Registro_Asistencia), new Action<Registro_Asistencia>(this.detach_Registro_Asistencia));
+			this._Registro_Asistencia1 = new EntitySet<Registro_Asistencia>(new Action<Registro_Asistencia>(this.attach_Registro_Asistencia1), new Action<Registro_Asistencia>(this.detach_Registro_Asistencia1));
 			this._Persona = default(EntityRef<Persona>);
 			this._Registro_Jardin = default(EntityRef<Registro_Jardin>);
 			OnCreated();
@@ -1420,6 +1259,19 @@ namespace Datos
 			}
 		}
 		
+		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="RegistroNinios_Registro_Avance_Academico", Storage="_Registro_Avance_Academico", ThisKey="RegistroNIUP", OtherKey="idNinio")]
+		public EntitySet<Registro_Avance_Academico> Registro_Avance_Academico
+		{
+			get
+			{
+				return this._Registro_Avance_Academico;
+			}
+			set
+			{
+				this._Registro_Avance_Academico.Assign(value);
+			}
+		}
+		
 		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="RegistroNinios_Registro_Asistencia", Storage="_Registro_Asistencia", ThisKey="RegistroNIUP", OtherKey="IdNinio")]
 		public EntitySet<Registro_Asistencia> Registro_Asistencia
 		{
@@ -1433,16 +1285,16 @@ namespace Datos
 			}
 		}
 		
-		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="RegistroNinios_Registro_Avance_Academico", Storage="_Registro_Avance_Academico", ThisKey="RegistroNIUP", OtherKey="idNinio")]
-		public EntitySet<Registro_Avance_Academico> Registro_Avance_Academico
+		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="RegistroNinios_Registro_Asistencia1", Storage="_Registro_Asistencia1", ThisKey="RegistroNIUP", OtherKey="IdNinio")]
+		public EntitySet<Registro_Asistencia> Registro_Asistencia1
 		{
 			get
 			{
-				return this._Registro_Avance_Academico;
+				return this._Registro_Asistencia1;
 			}
 			set
 			{
-				this._Registro_Avance_Academico.Assign(value);
+				this._Registro_Asistencia1.Assign(value);
 			}
 		}
 		
@@ -1534,6 +1386,18 @@ namespace Datos
 			}
 		}
 		
+		private void attach_Registro_Avance_Academico(Registro_Avance_Academico entity)
+		{
+			this.SendPropertyChanging();
+			entity.RegistroNinios = this;
+		}
+		
+		private void detach_Registro_Avance_Academico(Registro_Avance_Academico entity)
+		{
+			this.SendPropertyChanging();
+			entity.RegistroNinios = null;
+		}
+		
 		private void attach_Registro_Asistencia(Registro_Asistencia entity)
 		{
 			this.SendPropertyChanging();
@@ -1546,16 +1410,16 @@ namespace Datos
 			entity.RegistroNinios = null;
 		}
 		
-		private void attach_Registro_Avance_Academico(Registro_Avance_Academico entity)
+		private void attach_Registro_Asistencia1(Registro_Asistencia entity)
 		{
 			this.SendPropertyChanging();
-			entity.RegistroNinios = this;
+			entity.RegistroNinios1 = this;
 		}
 		
-		private void detach_Registro_Avance_Academico(Registro_Avance_Academico entity)
+		private void detach_Registro_Asistencia1(Registro_Asistencia entity)
 		{
 			this.SendPropertyChanging();
-			entity.RegistroNinios = null;
+			entity.RegistroNinios1 = null;
 		}
 	}
 	
@@ -1694,6 +1558,352 @@ namespace Datos
 		{
 			this.SendPropertyChanging();
 			entity.Rol = null;
+		}
+	}
+	
+	[global::System.Data.Linq.Mapping.TableAttribute(Name="dbo.Anuncios")]
+	public partial class Anuncios : INotifyPropertyChanging, INotifyPropertyChanged
+	{
+		
+		private static PropertyChangingEventArgs emptyChangingEventArgs = new PropertyChangingEventArgs(String.Empty);
+		
+		private int _IdAnuncio;
+		
+		private string _Descripcion;
+		
+		private System.DateTime _fechaAnuncio;
+		
+		private string _estado;
+		
+    #region Definiciones de métodos de extensibilidad
+    partial void OnLoaded();
+    partial void OnValidate(System.Data.Linq.ChangeAction action);
+    partial void OnCreated();
+    partial void OnIdAnuncioChanging(int value);
+    partial void OnIdAnuncioChanged();
+    partial void OnDescripcionChanging(string value);
+    partial void OnDescripcionChanged();
+    partial void OnfechaAnuncioChanging(System.DateTime value);
+    partial void OnfechaAnuncioChanged();
+    partial void OnestadoChanging(string value);
+    partial void OnestadoChanged();
+    #endregion
+		
+		public Anuncios()
+		{
+			OnCreated();
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_IdAnuncio", AutoSync=AutoSync.OnInsert, DbType="Int NOT NULL IDENTITY", IsPrimaryKey=true, IsDbGenerated=true)]
+		public int IdAnuncio
+		{
+			get
+			{
+				return this._IdAnuncio;
+			}
+			set
+			{
+				if ((this._IdAnuncio != value))
+				{
+					this.OnIdAnuncioChanging(value);
+					this.SendPropertyChanging();
+					this._IdAnuncio = value;
+					this.SendPropertyChanged("IdAnuncio");
+					this.OnIdAnuncioChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Descripcion", DbType="Text NOT NULL", CanBeNull=false, UpdateCheck=UpdateCheck.Never)]
+		public string Descripcion
+		{
+			get
+			{
+				return this._Descripcion;
+			}
+			set
+			{
+				if ((this._Descripcion != value))
+				{
+					this.OnDescripcionChanging(value);
+					this.SendPropertyChanging();
+					this._Descripcion = value;
+					this.SendPropertyChanged("Descripcion");
+					this.OnDescripcionChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_fechaAnuncio", DbType="Date NOT NULL")]
+		public System.DateTime fechaAnuncio
+		{
+			get
+			{
+				return this._fechaAnuncio;
+			}
+			set
+			{
+				if ((this._fechaAnuncio != value))
+				{
+					this.OnfechaAnuncioChanging(value);
+					this.SendPropertyChanging();
+					this._fechaAnuncio = value;
+					this.SendPropertyChanged("fechaAnuncio");
+					this.OnfechaAnuncioChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_estado", DbType="VarChar(50)")]
+		public string estado
+		{
+			get
+			{
+				return this._estado;
+			}
+			set
+			{
+				if ((this._estado != value))
+				{
+					this.OnestadoChanging(value);
+					this.SendPropertyChanging();
+					this._estado = value;
+					this.SendPropertyChanged("estado");
+					this.OnestadoChanged();
+				}
+			}
+		}
+		
+		public event PropertyChangingEventHandler PropertyChanging;
+		
+		public event PropertyChangedEventHandler PropertyChanged;
+		
+		protected virtual void SendPropertyChanging()
+		{
+			if ((this.PropertyChanging != null))
+			{
+				this.PropertyChanging(this, emptyChangingEventArgs);
+			}
+		}
+		
+		protected virtual void SendPropertyChanged(String propertyName)
+		{
+			if ((this.PropertyChanged != null))
+			{
+				this.PropertyChanged(this, new PropertyChangedEventArgs(propertyName));
+			}
+		}
+	}
+	
+	[global::System.Data.Linq.Mapping.TableAttribute(Name="dbo.Registro_Asistencia")]
+	public partial class Registro_Asistencia : INotifyPropertyChanging, INotifyPropertyChanged
+	{
+		
+		private static PropertyChangingEventArgs emptyChangingEventArgs = new PropertyChangingEventArgs(String.Empty);
+		
+		private long _idRegistro;
+		
+		private long _IdNinio;
+		
+		private System.DateTime _fecha;
+		
+		private string _DesEstadoNinio;
+		
+		private EntityRef<RegistroNinios> _RegistroNinios;
+		
+		private EntityRef<RegistroNinios> _RegistroNinios1;
+		
+    #region Definiciones de métodos de extensibilidad
+    partial void OnLoaded();
+    partial void OnValidate(System.Data.Linq.ChangeAction action);
+    partial void OnCreated();
+    partial void OnidRegistroChanging(long value);
+    partial void OnidRegistroChanged();
+    partial void OnIdNinioChanging(long value);
+    partial void OnIdNinioChanged();
+    partial void OnfechaChanging(System.DateTime value);
+    partial void OnfechaChanged();
+    partial void OnDesEstadoNinioChanging(string value);
+    partial void OnDesEstadoNinioChanged();
+    #endregion
+		
+		public Registro_Asistencia()
+		{
+			this._RegistroNinios = default(EntityRef<RegistroNinios>);
+			this._RegistroNinios1 = default(EntityRef<RegistroNinios>);
+			OnCreated();
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_idRegistro", AutoSync=AutoSync.OnInsert, DbType="BigInt NOT NULL IDENTITY", IsPrimaryKey=true, IsDbGenerated=true)]
+		public long idRegistro
+		{
+			get
+			{
+				return this._idRegistro;
+			}
+			set
+			{
+				if ((this._idRegistro != value))
+				{
+					this.OnidRegistroChanging(value);
+					this.SendPropertyChanging();
+					this._idRegistro = value;
+					this.SendPropertyChanged("idRegistro");
+					this.OnidRegistroChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_IdNinio", DbType="BigInt NOT NULL")]
+		public long IdNinio
+		{
+			get
+			{
+				return this._IdNinio;
+			}
+			set
+			{
+				if ((this._IdNinio != value))
+				{
+					if ((this._RegistroNinios.HasLoadedOrAssignedValue || this._RegistroNinios1.HasLoadedOrAssignedValue))
+					{
+						throw new System.Data.Linq.ForeignKeyReferenceAlreadyHasValueException();
+					}
+					this.OnIdNinioChanging(value);
+					this.SendPropertyChanging();
+					this._IdNinio = value;
+					this.SendPropertyChanged("IdNinio");
+					this.OnIdNinioChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_fecha", DbType="DateTime NOT NULL")]
+		public System.DateTime fecha
+		{
+			get
+			{
+				return this._fecha;
+			}
+			set
+			{
+				if ((this._fecha != value))
+				{
+					this.OnfechaChanging(value);
+					this.SendPropertyChanging();
+					this._fecha = value;
+					this.SendPropertyChanged("fecha");
+					this.OnfechaChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_DesEstadoNinio", DbType="VarChar(50) NOT NULL", CanBeNull=false)]
+		public string DesEstadoNinio
+		{
+			get
+			{
+				return this._DesEstadoNinio;
+			}
+			set
+			{
+				if ((this._DesEstadoNinio != value))
+				{
+					this.OnDesEstadoNinioChanging(value);
+					this.SendPropertyChanging();
+					this._DesEstadoNinio = value;
+					this.SendPropertyChanged("DesEstadoNinio");
+					this.OnDesEstadoNinioChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="RegistroNinios_Registro_Asistencia", Storage="_RegistroNinios", ThisKey="IdNinio", OtherKey="RegistroNIUP", IsForeignKey=true)]
+		public RegistroNinios RegistroNinios
+		{
+			get
+			{
+				return this._RegistroNinios.Entity;
+			}
+			set
+			{
+				RegistroNinios previousValue = this._RegistroNinios.Entity;
+				if (((previousValue != value) 
+							|| (this._RegistroNinios.HasLoadedOrAssignedValue == false)))
+				{
+					this.SendPropertyChanging();
+					if ((previousValue != null))
+					{
+						this._RegistroNinios.Entity = null;
+						previousValue.Registro_Asistencia.Remove(this);
+					}
+					this._RegistroNinios.Entity = value;
+					if ((value != null))
+					{
+						value.Registro_Asistencia.Add(this);
+						this._IdNinio = value.RegistroNIUP;
+					}
+					else
+					{
+						this._IdNinio = default(long);
+					}
+					this.SendPropertyChanged("RegistroNinios");
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="RegistroNinios_Registro_Asistencia1", Storage="_RegistroNinios1", ThisKey="IdNinio", OtherKey="RegistroNIUP", IsForeignKey=true, DeleteOnNull=true, DeleteRule="CASCADE")]
+		public RegistroNinios RegistroNinios1
+		{
+			get
+			{
+				return this._RegistroNinios1.Entity;
+			}
+			set
+			{
+				RegistroNinios previousValue = this._RegistroNinios1.Entity;
+				if (((previousValue != value) 
+							|| (this._RegistroNinios1.HasLoadedOrAssignedValue == false)))
+				{
+					this.SendPropertyChanging();
+					if ((previousValue != null))
+					{
+						this._RegistroNinios1.Entity = null;
+						previousValue.Registro_Asistencia1.Remove(this);
+					}
+					this._RegistroNinios1.Entity = value;
+					if ((value != null))
+					{
+						value.Registro_Asistencia1.Add(this);
+						this._IdNinio = value.RegistroNIUP;
+					}
+					else
+					{
+						this._IdNinio = default(long);
+					}
+					this.SendPropertyChanged("RegistroNinios1");
+				}
+			}
+		}
+		
+		public event PropertyChangingEventHandler PropertyChanging;
+		
+		public event PropertyChangedEventHandler PropertyChanged;
+		
+		protected virtual void SendPropertyChanging()
+		{
+			if ((this.PropertyChanging != null))
+			{
+				this.PropertyChanging(this, emptyChangingEventArgs);
+			}
+		}
+		
+		protected virtual void SendPropertyChanged(String propertyName)
+		{
+			if ((this.PropertyChanged != null))
+			{
+				this.PropertyChanged(this, new PropertyChangedEventArgs(propertyName));
+			}
 		}
 	}
 	

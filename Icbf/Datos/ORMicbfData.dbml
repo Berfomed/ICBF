@@ -16,15 +16,6 @@
       <Association Name="Rol_Persona" Member="Rol" ThisKey="idRol" OtherKey="idRol" Type="Rol" IsForeignKey="true" />
     </Type>
   </Table>
-  <Table Name="dbo.Registro_Asistencia" Member="Registro_Asistencia">
-    <Type Name="Registro_Asistencia">
-      <Column Name="idRegistro" Type="System.Int64" DbType="BigInt NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
-      <Column Name="IdNinio" Type="System.Int64" DbType="BigInt NOT NULL" CanBeNull="false" />
-      <Column Name="fecha" Type="System.DateTime" DbType="DateTime NOT NULL" CanBeNull="false" />
-      <Column Name="DesEstadoNinio" Type="System.String" DbType="Text" CanBeNull="true" UpdateCheck="Never" />
-      <Association Name="RegistroNinios_Registro_Asistencia" Member="RegistroNinios" ThisKey="IdNinio" OtherKey="RegistroNIUP" Type="RegistroNinios" IsForeignKey="true" />
-    </Type>
-  </Table>
   <Table Name="dbo.Registro_Avance_Academico" Member="Registro_Avance_Academico">
     <Type Name="Registro_Avance_Academico">
       <Column Name="CodRegistro" Type="System.Int64" DbType="BigInt NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
@@ -60,8 +51,9 @@
       <Column Name="Direccion" Type="System.String" DbType="VarChar(50) NOT NULL" CanBeNull="false" />
       <Column Name="EPS" Type="System.String" DbType="VarChar(50) NOT NULL" CanBeNull="false" />
       <Column Name="IdJardin" Type="System.Int32" DbType="Int" CanBeNull="true" />
-      <Association Name="RegistroNinios_Registro_Asistencia" Member="Registro_Asistencia" ThisKey="RegistroNIUP" OtherKey="IdNinio" Type="Registro_Asistencia" />
       <Association Name="RegistroNinios_Registro_Avance_Academico" Member="Registro_Avance_Academico" ThisKey="RegistroNIUP" OtherKey="idNinio" Type="Registro_Avance_Academico" />
+      <Association Name="RegistroNinios_Registro_Asistencia" Member="Registro_Asistencia" ThisKey="RegistroNIUP" OtherKey="IdNinio" Type="Registro_Asistencia" />
+      <Association Name="RegistroNinios_Registro_Asistencia1" Member="Registro_Asistencia1" ThisKey="RegistroNIUP" OtherKey="IdNinio" Type="Registro_Asistencia" />
       <Association Name="Persona_RegistroNinios" Member="Persona" ThisKey="DocAcudiente" OtherKey="Cedula" Type="Persona" IsForeignKey="true" />
       <Association Name="Registro_Jardin_RegistroNinios" Member="Registro_Jardin" ThisKey="IdJardin" OtherKey="IdJardin" Type="Registro_Jardin" IsForeignKey="true" />
     </Type>
@@ -72,6 +64,24 @@
       <Column Name="nombreRol" Type="System.String" DbType="VarChar(50)" CanBeNull="true" />
       <Column Name="descripcion" Type="System.String" DbType="Text" CanBeNull="true" UpdateCheck="Never" />
       <Association Name="Rol_Persona" Member="Persona" ThisKey="idRol" OtherKey="idRol" Type="Persona" />
+    </Type>
+  </Table>
+  <Table Name="dbo.Anuncios" Member="Anuncios">
+    <Type Name="Anuncios">
+      <Column Name="IdAnuncio" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="Descripcion" Type="System.String" DbType="Text NOT NULL" CanBeNull="false" UpdateCheck="Never" />
+      <Column Name="fechaAnuncio" Type="System.DateTime" DbType="Date NOT NULL" CanBeNull="false" />
+      <Column Name="estado" Type="System.String" DbType="VarChar(50)" CanBeNull="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.Registro_Asistencia" Member="Registro_Asistencia">
+    <Type Name="Registro_Asistencia">
+      <Column Name="idRegistro" Type="System.Int64" DbType="BigInt NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="IdNinio" Type="System.Int64" DbType="BigInt NOT NULL" CanBeNull="false" />
+      <Column Name="fecha" Type="System.DateTime" DbType="DateTime NOT NULL" CanBeNull="false" />
+      <Column Name="DesEstadoNinio" Type="System.String" DbType="VarChar(50) NOT NULL" CanBeNull="false" />
+      <Association Name="RegistroNinios_Registro_Asistencia" Member="RegistroNinios" ThisKey="IdNinio" OtherKey="RegistroNIUP" Type="RegistroNinios" IsForeignKey="true" />
+      <Association Name="RegistroNinios_Registro_Asistencia1" Member="RegistroNinios1" ThisKey="IdNinio" OtherKey="RegistroNIUP" Type="RegistroNinios" IsForeignKey="true" DeleteRule="CASCADE" DeleteOnNull="true" />
     </Type>
   </Table>
   <Function Name="dbo.SP_LOGIN" Method="SP_LOGIN">

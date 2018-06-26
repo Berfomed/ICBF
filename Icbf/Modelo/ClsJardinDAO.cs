@@ -15,9 +15,9 @@ namespace Modelo
         {
             ORMicbfDataDataContext dbicbf = new ORMicbfDataDataContext();
             var consulta = (from a in dbicbf.Registro_Jardin
-                            where a.IdMadreComunitaria.Equals(_madreComunitaria) && a.NombreJardin.Equals(_nombreJardin)
-                            select a).First();
-            if (consulta == null)
+                            where a.IdMadreComunitaria.Equals(_madreComunitaria) || a.NombreJardin.Equals(_nombreJardin)
+                            select a);
+            if (consulta != null)
             {
                 //crear la instancia del ORM
                 ORMicbfDataDataContext bd = new ORMicbfDataDataContext();
@@ -73,6 +73,8 @@ namespace Modelo
             bd.SubmitChanges();
             MessageBox.Show("Se actualizó correctamente");
         }
+
+        //Metodo para consultar las madres comunitarias
         public object consultarTodos()
         {
             ORMicbfDataDataContext bd = new ORMicbfDataDataContext();
@@ -123,6 +125,17 @@ namespace Modelo
             bd.Registro_Jardin.DeleteOnSubmit(objJardin);
             bd.SubmitChanges();
             MessageBox.Show("Se eliminó el jardín");
+
+        }
+        public object jardinNoAprobado()
+        {
+            ORMicbfDataDataContext bd = new ORMicbfDataDataContext();
+            var consulta = from a in bd.Registro_Jardin
+                           where a.EstadoJardin.Equals("No Aprobado")
+                           select a;
+                                    
+
+            return consulta.Distinct();
 
         }
     }

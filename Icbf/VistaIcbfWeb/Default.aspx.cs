@@ -11,6 +11,7 @@ namespace VistaIcbfWeb
     {
         protected void Page_Load(object sender, EventArgs e)
         {
+            lbValidar.Text = "Debes estar registrado para poder ingresar al sistema";
 
         }
     }

@@ -4,6 +4,7 @@ using System.Linq;
 using System.Web;
 using System.Web.UI;
 using System.Web.UI.WebControls;
+using Modelo;
 
 namespace VistaIcbfWeb.Acudiente
 {
@@ -11,18 +12,25 @@ namespace VistaIcbfWeb.Acudiente
     {
         protected void Page_Load(object sender, EventArgs e)
         {
-            try
+            if (!IsPostBack)
             {
-                String nombre = Session["Nombres"].ToString();
-                Label1.Text = "Bienvenido" + nombre;
-            }
-            catch (Exception)
-            {
-                Response.Redirect("~/Default.aspx");
-            }
+                //muestra el avance del niño
+                ClsAvanceDAO objavance = new ClsAvanceDAO();
+                dgvAvanceNino.DataSource = objavance.consultarAvanceNiño(int.Parse(Session["Cedula"].ToString()));
+                dgvAvanceNino.DataBind();
 
+                //ClsAnunciosDAO objanuncio = new ClsAnunciosDAO();
+                //dgvAnuncios.DataSource = objanuncio.mostrarAnuncios();
+                //dgvAnuncios.DataBind();
 
-            //Label1.Text = (String)Session["Nombres"];
+                lbfecha.Text = DateTime.Now.ToString();        
+            }
+        }
+
+        protected void btnCerrarSesion_Click(object sender, EventArgs e)
+        {
+            Session.Remove("Nombres");
+            Response.Redirect("~/Login.aspx");
         }
     }
-    }
+}

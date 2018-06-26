@@ -131,6 +131,14 @@ values (103, 2017, 'Parvulos', '10, 8, 9', 'Muy activo en todas las actividades'
 
 SELECT * FROM Registro_Avance_Academico go
 
+create table Anuncios
+(
+idAnuncio int primary key not null identity(1,1),
+Descripcion text not null,
+FechaAnuncio date not null,
+estado varchar(50) not null,
+)
+
 --PROCEDIMIENTO ALMACENADO PARA VALIDAR USUARIO Y CLAVE--
 
 CREATE PROCEDURE SP_LOGIN 

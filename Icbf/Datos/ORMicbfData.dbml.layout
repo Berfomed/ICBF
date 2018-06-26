@@ -1,17 +1,11 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
-<ordesignerObjectsDiagram dslVersion="1.0.0.0" absoluteBounds="0, 0, 14, 8.5" name="ORMicbfData">
+<ordesignerObjectsDiagram dslVersion="1.0.0.0" absoluteBounds="0, 0, 14.25, 8.5" name="ORMicbfData">
   <DataContextMoniker Name="/ORMicbfDataDataContext" />
   <nestedChildShapes>
     <classShape Id="f23613fa-8de4-4709-809f-7dfad64be95b" absoluteBounds="3.5, 2, 2, 2.5401025390624996">
       <DataClassMoniker Name="/ORMicbfDataDataContext/Persona" />
       <nestedChildShapes>
         <elementListCompartment Id="40dd618c-9541-464d-b3b6-49e048b0a715" absoluteBounds="3.515, 2.46, 1.9700000000000002, 1.9801025390625" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
-      </nestedChildShapes>
-    </classShape>
-    <classShape Id="9c343462-a16f-4950-91f4-15e2cd57a68a" absoluteBounds="11.75, 1, 2, 1.5785953776041666">
-      <DataClassMoniker Name="/ORMicbfDataDataContext/Registro_Asistencia" />
-      <nestedChildShapes>
-        <elementListCompartment Id="35ae1e03-33ff-4325-ba8d-f42aebd4981e" absoluteBounds="11.765, 1.46, 1.9700000000000002, 1.0185953776041665" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
       </nestedChildShapes>
     </classShape>
     <classShape Id="d0e23ba6-eb12-49e7-a499-15ae7018dee9" absoluteBounds="11.75, 3.375, 2, 2.1554996744791666">
@@ -38,18 +32,11 @@
         <elementListCompartment Id="1cfd3e5f-89a1-4a01-a48a-e6dadb5e196b" absoluteBounds="0.765, 3.085, 1.9700000000000002, 0.8262939453125" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
       </nestedChildShapes>
     </classShape>
-    <associationConnector edgePoints="[(5.5 : 3.26044840494792); (6.25 : 3.26044840494792)]" fixedFrom="Algorithm" fixedTo="Algorithm">
+    <associationConnector edgePoints="[(5.5 : 3.51849609375); (6.25 : 3.51849609375)]" fixedFrom="Algorithm" fixedTo="Algorithm">
       <AssociationMoniker Name="/ORMicbfDataDataContext/Persona/Persona_Registro_Jardin" />
       <nodes>
         <classShapeMoniker Id="f23613fa-8de4-4709-809f-7dfad64be95b" />
         <classShapeMoniker Id="e3109116-25e0-4f49-9805-f2c4bc8905fe" />
-      </nodes>
-    </associationConnector>
-    <associationConnector edgePoints="[(11 : 2.22679768880208); (11.75 : 2.22679768880208)]" fixedFrom="NotFixed" fixedTo="NotFixed">
-      <AssociationMoniker Name="/ORMicbfDataDataContext/RegistroNinios/RegistroNinios_Registro_Asistencia" />
-      <nodes>
-        <classShapeMoniker Id="eccbd8d1-df77-401f-8715-2e08cfd1d9ef" />
-        <classShapeMoniker Id="9c343462-a16f-4950-91f4-15e2cd57a68a" />
       </nodes>
     </associationConnector>
     <associationConnector edgePoints="[(11 : 3.99120198567708); (11.75 : 3.99120198567708)]" fixedFrom="NotFixed" fixedTo="NotFixed">
@@ -66,18 +53,44 @@
         <classShapeMoniker Id="eccbd8d1-df77-401f-8715-2e08cfd1d9ef" />
       </nodes>
     </associationConnector>
-    <associationConnector edgePoints="[(8.25 : 3.26044840494792); (9 : 3.26044840494792)]" fixedFrom="NotFixed" fixedTo="NotFixed">
+    <associationConnector edgePoints="[(8.25 : 3.26044840494792); (9 : 3.26044840494792)]" fixedFrom="Algorithm" fixedTo="Algorithm">
       <AssociationMoniker Name="/ORMicbfDataDataContext/Registro_Jardin/Registro_Jardin_RegistroNinios" />
       <nodes>
         <classShapeMoniker Id="e3109116-25e0-4f49-9805-f2c4bc8905fe" />
         <classShapeMoniker Id="eccbd8d1-df77-401f-8715-2e08cfd1d9ef" />
       </nodes>
     </associationConnector>
-    <associationConnector edgePoints="[(2.75 : 3.31814697265625); (3.5 : 3.31814697265625)]" fixedFrom="Algorithm" fixedTo="Algorithm">
+    <associationConnector edgePoints="[(2.75 : 3.31814697265625); (3.5 : 3.31814697265625)]" fixedFrom="NotFixed" fixedTo="NotFixed">
       <AssociationMoniker Name="/ORMicbfDataDataContext/Rol/Rol_Persona" />
       <nodes>
         <classShapeMoniker Id="c960da6f-7e46-4db2-84bd-c37a52ecdd95" />
         <classShapeMoniker Id="f23613fa-8de4-4709-809f-7dfad64be95b" />
+      </nodes>
+    </associationConnector>
+    <classShape Id="1a682d05-4b4b-4cd1-9a5e-d313dd936ca8" absoluteBounds="1, 0.5, 2, 1.5785953776041666">
+      <DataClassMoniker Name="/ORMicbfDataDataContext/Anuncios" />
+      <nestedChildShapes>
+        <elementListCompartment Id="27332020-5592-4fbd-a372-8e4b88695362" absoluteBounds="1.0149999999999997, 0.96, 1.9700000000000002, 1.0185953776041665" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+    <classShape Id="69baf867-c9ab-4207-a21c-16f807fed075" absoluteBounds="12, 1.25, 2, 1.5785953776041666">
+      <DataClassMoniker Name="/ORMicbfDataDataContext/Registro_Asistencia" />
+      <nestedChildShapes>
+        <elementListCompartment Id="f61f8e37-9320-4845-a8b5-0121ac10730a" absoluteBounds="12.015, 1.71, 1.9700000000000002, 1.0185953776041665" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+    <associationConnector edgePoints="[(11 : 2.35179768880208); (12 : 2.35179768880208)]" fixedFrom="Algorithm" fixedTo="Algorithm">
+      <AssociationMoniker Name="/ORMicbfDataDataContext/RegistroNinios/RegistroNinios_Registro_Asistencia" />
+      <nodes>
+        <classShapeMoniker Id="eccbd8d1-df77-401f-8715-2e08cfd1d9ef" />
+        <classShapeMoniker Id="69baf867-c9ab-4207-a21c-16f807fed075" />
+      </nodes>
+    </associationConnector>
+    <associationConnector edgePoints="[(11 : 2.05089884440104); (12 : 2.05089884440104)]" fixedFrom="Algorithm" fixedTo="Algorithm">
+      <AssociationMoniker Name="/ORMicbfDataDataContext/RegistroNinios/RegistroNinios_Registro_Asistencia1" />
+      <nodes>
+        <classShapeMoniker Id="eccbd8d1-df77-401f-8715-2e08cfd1d9ef" />
+        <classShapeMoniker Id="69baf867-c9ab-4207-a21c-16f807fed075" />
       </nodes>
     </associationConnector>
   </nestedChildShapes>
